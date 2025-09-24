@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growth Mindset Survey</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #4e5d6c;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    p {
+      line-height: 1.4;
+    }
+    .question {
+      margin-top: 1.5rem;
+    }
+    .question-title {
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .options label {
+      flex: 1;
+      text-align: center;
+    }
+    label[for="email"] {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    input[type="email"] {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .result {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 4px;
+      background-color: #eef5ff;
+      display: none;
+    }
+    .bar-container {
+      width: 100%;
+      height: 20px;
+      background-color: #e0e0e0;
+      border-radius: 4px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background-color: #4e5d6c;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    button {
+      display: block;
+      margin: 2rem auto;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      background-color: #4e5d6c;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3f4a56;
+    }
+    #emailLink {
+      display: none;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: #fff;
+      background-color: #4e5d6c;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+    }
+    #emailLink:hover {
+      background-color: #3f4a56;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Growth Mindset Self‑Assessment</h1>
+  </header>
+  <div class="container">
+    <p>
+      Please rate each statement according to how strongly you agree or disagree. Use the 5‑point scale:
+      <strong>1 = Strongly disagree</strong> &nbsp;to&nbsp; <strong>5 = Strongly agree</strong>.
+    </p>
+    <!-- Email input -->
+    <label for="email">Email (optional):</label>
+    <input type="email" id="email" placeholder="Enter your email to receive your results" />
+    
+    <form id="surveyForm" onsubmit="return false;">
+      <div class="question" id="q1">
+        <div class="question-title">1. I approach new AI technologies with curiosity—even when they seem intimidating or unfamiliar.</div>
+        <div class="options">
+          <label><input type="radio" name="q1" value="1" required />1</label>
+          <label><input type="radio" name="q1" value="2" />2</label>
+          <label><input type="radio" name="q1" value="3" />3</label>
+          <label><input type="radio" name="q1" value="4" />4</label>
+          <label><input type="radio" name="q1" value="5" />5</label>
+        </div>
+      </div>
+      <div class="question" id="q2">
+        <div class="question-title">2. When using AI tools, I focus on learning and incremental improvement instead of expecting perfect results immediately.</div>
+        <div class="options">
+          <label><input type="radio" name="q2" value="1" required />1</label>
+          <label><input type="radio" name="q2" value="2" />2</label>
+          <label><input type="radio" name="q2" value="3" />3</label>
+          <label><input type="radio" name="q2" value="4" />4</label>
+          <label><input type="radio" name="q2" value="5" />5</label>
+        </div>
+      </div>
+      <div class="question" id="q3">
+        <div class="question-title">3. I view AI as a partner that can augment my abilities, and I’m open to experimenting with it.</div>
+        <div class="options">
+          <label><input type="radio" name="q3" value="1" required />1</label>
+          <label><input type="radio" name="q3" value="2" />2</label>
+          <label><input type="radio" name="q3" value="3" />3</label>
+          <label><input type="radio" name="q3" value="4" />4</label>
+          <label><input type="radio" name="q3" value="5" />5</label>
+        </div>
+      </div>
+      <div class="question" id="q4">
+        <div class="question-title">4. If an AI tool doesn’t give me the expected result, I persist and problem‑solve rather than giving up.</div>
+        <div class="options">
+          <label><input type="radio" name="q4" value="1" required />1</label>
+          <label><input type="radio" name="q4" value="2" />2</label>
+          <label><input type="radio" name="q4" value="3" />3</label>
+          <label><input type="radio" name="q4" value="4" />4</label>
+          <label><input type="radio" name="q4" value="5" />5</label>
+        </div>
+      </div>
+      <div class="question" id="q5">
+        <div class="question-title">5. I am willing to adapt my approach and learn new skills as AI technologies evolve.</div>
+        <div class="options">
+          <label><input type="radio" name="q5" value="1" required />1</label>
+          <label><input type="radio" name="q5" value="2" />2</label>
+          <label><input type="radio" name="q5" value="3" />3</label>
+          <label><input type="radio" name="q5" value="4" />4</label>
+          <label><input type="radio" name="q5" value="5" />5</label>
+        </div>
+      </div>
+      <div class="question" id="q6">
+        <div class="question-title">6. I believe my abilities can be developed through dedication and hard work.</div>
+        <div class="options">
+          <label><input type="radio" name="q6" value="1" required />1</label>
+          <label><input type="radio" name="q6" value="2" />2</label>
+          <label><input type="radio" name="q6" value="3" />3</label>
+          <label><input type="radio" name="q6" value="4" />4</label>
+          <label><input type="radio" name="q6" value="5" />5</label>
+        </div>
+      </div>
+      <div class="question" id="q7">
+        <div class="question-title">7. I enjoy taking on tasks that are challenging, even when there’s a risk of failure.</div>
+        <div class="options">
+          <label><input type="radio" name="q7" value="1" required />1</label>
+          <label><input type="radio" name="q7" value="2" />2</label>
+          <label><input type="radio" name="q7" value="3" />3</label>
+          <label><input type="radio" name="q7" value="4" />4</label>
+          <label><input type="radio" name="q7" value="5" />5</label>
+        </div>
+      </div>
+      <div class="question" id="q8">
+        <div class="question-title">8. I see sustained effort as the path to mastery, including when learning to use AI tools.</div>
+        <div class="options">
+          <label><input type="radio" name="q8" value="1" required />1</label>
+          <label><input type="radio" name="q8" value="2" />2</label>
+          <label><input type="radio" name="q8" value="3" />3</label>
+          <label><input type="radio" name="q8" value="4" />4</label>
+          <label><input type="radio" name="q8" value="5" />5</label>
+        </div>
+      </div>
+      <div class="question" id="q9">
+        <div class="question-title">9. I welcome feedback and criticism as opportunities to improve and seek it out when using AI.</div>
+        <div class="options">
+          <label><input type="radio" name="q9" value="1" required />1</label>
+          <label><input type="radio" name="q9" value="2" />2</label>
+          <label><input type="radio" name="q9" value="3" />3</label>
+          <label><input type="radio" name="q9" value="4" />4</label>
+          <label><input type="radio" name="q9" value="5" />5</label>
+        </div>
+      </div>
+      <div class="question" id="q10">
+        <div class="question-title">10. I feel inspired by the success of others and use it to motivate my own growth.</div>
+        <div class="options">
+          <label><input type="radio" name="q10" value="1" required />1</label>
+          <label><input type="radio" name="q10" value="2" />2</label>
+          <label><input type="radio" name="q10" value="3" />3</label>
+          <label><input type="radio" name="q10" value="4" />4</label>
+          <label><input type="radio" name="q10" value="5" />5</label>
+        </div>
+      </div>
+      <button type="button" onclick="calculateScore()">Calculate Your Score</button>
+    </form>
+    <div class="result" id="resultBox">
+      <h2>Your Score</h2>
+      <p id="scoreText"></p>
+      <p id="scoreScale"></p>
+      <p id="interpretation"></p>
+      <div class="bar-container">
+        <div class="bar-fill" id="barFill"></div>
+      </div>
+      <p id="visualLabel"></p>
+      <a id="emailLink" target="_blank">Send results to your email</a>
+    </div>
+  </div>
+  <script>
+    // Compute the total score, display results visually and prepare email link
+    function calculateScore() {
+      let total = 0;
+      for (let i = 1; i <= 10; i++) {
+        const radios = document.getElementsByName('q' + i);
+        let selected = 0;
+        for (let j = 0; j < radios.length; j++) {
+          if (radios[j].checked) {
+            selected = parseInt(radios[j].value);
+            break;
+          }
+        }
+        if (selected === 0) {
+          alert('Please answer all questions before submitting.');
+          return;
+        }
+        total += selected;
+      }
+      const scaleScore = (total / 50) * 10;
+      let message;
+      let plainTier;
+      if (scaleScore <= 3) {
+        message = 'You fall into the <strong>strong fixed mindset</strong> tier (1–3 out of 10). This suggests you tend to see your abilities as static. To nurture a growth mindset, start by approaching new technologies with curiosity, viewing mistakes as opportunities to learn, and recognising that practice and feedback can improve your skills.';
+        plainTier = 'strong fixed mindset';
+      } else if (scaleScore <= 5) {
+        message = 'You fall into the <strong>mostly fixed mindset</strong> tier (3–5 out of 10). You occasionally acknowledge the possibility for growth but often retreat to familiar patterns. Focus on persisting through setbacks, welcoming feedback and intentionally trying new approaches—especially when working with AI.';
+        plainTier = 'mostly fixed mindset';
+      } else if (scaleScore <= 7) {
+        message = 'You fall into the <strong>emerging growth mindset</strong> tier (5–7 out of 10). You generally believe in your capacity to learn and grow, though some fixed‑mindset thoughts may appear. Keep embracing challenges, stay curious, and reframe failures as valuable lessons.';
+        plainTier = 'emerging growth mindset';
+      } else if (scaleScore <= 9) {
+        message = 'You fall into the <strong>strong growth mindset</strong> tier (7–9 out of 10). You regularly embrace challenges, persist in the face of obstacles, and appreciate feedback. Continue exploring new technologies and consider mentoring or collaborating with others to spread your growth‑oriented approach.';
+        plainTier = 'strong growth mindset';
+      } else {
+        message = 'You fall into the <strong>exceptional growth mindset</strong> tier (9–10 out of 10). You fully embody growth‑mindset principles—seeing challenges, feedback and the success of others as fuel for your own improvement. Continue pushing your boundaries and inspire those around you.';
+        plainTier = 'exceptional growth mindset';
+      }
+      // Update result section
+      document.getElementById('scoreText').textContent = 'You scored ' + total + ' out of 50.';
+      document.getElementById('scoreScale').textContent = 'This corresponds to ' + scaleScore.toFixed(1) + ' out of 10 on the growth‑mindset scale.';
+      document.getElementById('interpretation').innerHTML = message;
+      // Update visual bar
+      const barFill = document.getElementById('barFill');
+      barFill.style.width = (scaleScore * 10) + '%';
+      document.getElementById('visualLabel').textContent = 'Growth mindset level: ' + scaleScore.toFixed(1) + ' / 10';
+      // Prepare email link if email provided
+      const emailField = document.getElementById('email');
+      const emailLink = document.getElementById('emailLink');
+      const email = emailField.value.trim();
+      if (email !== '') {
+        // Compose a plain text version of the message
+        const plainMessage = message.replace(/<[^>]+>/g, '');
+        const subject = encodeURIComponent('Your Growth Mindset Survey Results');
+        const body = encodeURIComponent(
+          'Hello,\n\n' +
+          'Here are your growth mindset survey results:\n' +
+          'Score: ' + total + '/50\n' +
+          'Scale: ' + scaleScore.toFixed(1) + '/10\n' +
+          'Tier: ' + plainTier + '\n' +
+          'Guidance: ' + plainMessage + '\n\n' +
+          'Thank you for participating!'
+        );
+        emailLink.href = 'mailto:' + encodeURIComponent(email) + '?subject=' + subject + '&body=' + body;
+        emailLink.style.display = 'inline-block';
+      } else {
+        emailLink.style.display = 'none';
+      }
+      document.getElementById('resultBox').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
